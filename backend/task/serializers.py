@@ -17,14 +17,15 @@ class RegisterSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(**validated_data)
         UserProfile.objects.create(user=user)
         return user
-
 class UserProfileSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
+
     class Meta:
         model = UserProfile
-        fields = ['user', 'phone', 'address']
+        fields = ["user", "phone", "address"]
 
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
-        fields = '__all__'
+        fields = "__all__"
+        read_only_fields = ['user',]

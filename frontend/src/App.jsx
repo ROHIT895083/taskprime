@@ -1,28 +1,57 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./Login";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import Login from "./login";
+// import Register from "./Register";
+// import Dashboard from "./Dashboard";
+// import PrivateRoute from "./PrivateRoute";
+// import Task from "./task";
+
+// function App() {
+//   return (
+//     <BrowserRouter>
+//       <Routes>
+//         <Route path="/" element={<Login />} />
+//         <Route path="/register" element={<Register />} />
+//         <Route path="/dashboard" element={  <Dashboard />}/>
+
+//         <Route
+//           path="/task"
+//           element={
+//             <PrivateRoute>
+//               <Task/>
+//             </PrivateRoute>
+//           }
+//         />
+//       </Routes>
+//     </BrowserRouter>
+//   );
+// }
+
+// export default App;
+
+// App.jsx
+import { Routes, Route } from "react-router-dom";
+import Login from "./login";
 import Register from "./Register";
 import Dashboard from "./Dashboard";
-import PrivateRoute from "./PrivateRoute"; // Optional if using JWT protection
+import PrivateRoute from "./PrivateRoute";
+import Task from "./task";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/dashboard" element={<Dashboard />} />
 
-        {/* ✅ Make sure this route is defined */}
-        <Route
-          path="/dashboard"
-          element={
-            <PrivateRoute>
-              <Dashboard />
-            </PrivateRoute>
-          }
-        />
-      </Routes>
-    </Router>
+      <Route
+        path="/task"
+        element={
+          <PrivateRoute>
+            <Task />
+          </PrivateRoute>
+        }
+      />
+    </Routes>
   );
 }
 

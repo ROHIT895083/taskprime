@@ -21,7 +21,8 @@ const Register = () => {
     setMessage("");
 
     try {
-      const res = await axios.post("http://127.0.0.1:8000/api/signup/", formData);
+     const res = await axios.post("http://127.0.0.1:8000/task/signup/", formData);
+
       if (res.status === 201) {
         setMessage("✅ Registration successful! Redirecting to login...");
         setTimeout(() => navigate("/"), 1500);

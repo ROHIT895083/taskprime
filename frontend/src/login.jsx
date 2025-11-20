@@ -12,16 +12,10 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://127.0.0.1:8000/task/login/", {
-        username,
-        password,
-      });
-
-      localStorage.setItem("access", res.data.access);
-      localStorage.setItem("refresh", res.data.refresh);
-
-      alert("Login successful!");
-      navigate("/Dashboard");
+     const res = await axios.post('http://127.0.0.1:8000/task/login/', { username, password })
+    localStorage.setItem('access', res.data.access)
+    localStorage.setItem('refresh', res.data.refresh)
+    navigate('/task')
     } catch (err) {
       setError("Invalid username or password");
     }
@@ -73,3 +67,4 @@ const Login = () => {
 };
 
 export default Login;
+
